@@ -1,4 +1,5 @@
 module Collection {
-    opens com.xingray.collection;
+    requires JavaBase;
+
     exports com.xingray.collection;
 }
