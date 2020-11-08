@@ -1818,6 +1818,127 @@ public class CollectionUtil {
         return dstList;
     }
 
+    // ============================ //
+
+    public static <T> int[] convert(Iterable<? extends T> iterable, IndexIntMapper<T> mapper) {
+        if (isEmpty(iterable)) {
+            return null;
+        }
+
+        int size;
+        if (iterable instanceof Collection) {
+            //noinspection rawtypes
+            Collection c = (Collection) iterable;
+            size = c.size();
+        } else {
+            size = size(iterable);
+        }
+
+        int i = 0;
+        int[] values = new int[size];
+        for (T t : iterable) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    public static <T> int[] convert(T[] array, IndexIntMapper<T> mapper) {
+        if (isEmpty(array)) {
+            return null;
+        }
+        int size = array.length;
+        int i = 0;
+        int[] values = new int[size];
+        for (T t : array) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    public static <T> long[] convert(Iterable<? extends T> iterable, IndexLongMapper<T> mapper) {
+        if (isEmpty(iterable)) {
+            return null;
+        }
+
+        int size;
+        if (iterable instanceof Collection) {
+            //noinspection rawtypes
+            Collection c = (Collection) iterable;
+            size = c.size();
+        } else {
+            size = size(iterable);
+        }
+
+        int i = 0;
+        long[] values = new long[size];
+        for (T t : iterable) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    public static <T> long[] convert(T[] array, IndexLongMapper<T> mapper) {
+        if (isEmpty(array)) {
+            return null;
+        }
+        int size = array.length;
+        int i = 0;
+        long[] values = new long[size];
+        for (T t : array) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    public static <T> double[] convert(Iterable<? extends T> iterable, IndexDoubleMapper<T> mapper) {
+        if (isEmpty(iterable)) {
+            return null;
+        }
+
+        int size;
+        if (iterable instanceof Collection) {
+            //noinspection rawtypes
+            Collection c = (Collection) iterable;
+            size = c.size();
+        } else {
+            size = size(iterable);
+        }
+
+        int i = 0;
+        double[] values = new double[size];
+        for (T t : iterable) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    public static <T> double[] convert(T[] array, IndexDoubleMapper<T> mapper) {
+        if (isEmpty(array)) {
+            return null;
+        }
+        int size = array.length;
+        int i = 0;
+        double[] values = new double[size];
+        for (T t : array) {
+            values[i] = mapper.map(i, t);
+            i++;
+        }
+
+        return values;
+    }
+
+    // =================================== //
+
     public static <T, E> void convert(T[] srcArray, E[] dstArray, IndexMapper<T, E> indexMapper) {
         if (isEmpty(srcArray) || isEmpty(dstArray)) {
             return;
