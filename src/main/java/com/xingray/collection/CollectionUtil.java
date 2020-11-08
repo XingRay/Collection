@@ -2,7 +2,9 @@ package com.xingray.collection;
 
 
 import com.xingray.javabase.interfaces.*;
+import com.xingray.javabase.range.DoubleRange;
 import com.xingray.javabase.range.IntRange;
+import com.xingray.javabase.range.LongRange;
 
 import java.util.*;
 
@@ -796,154 +798,154 @@ public class CollectionUtil {
         return -1;
     }
 
-    public static int indexOf(boolean[] array, Filter<Boolean> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(boolean[] array, Matcher<Boolean> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(boolean[] array, int startIndex, Filter<Boolean> filter) {
+    public static int indexOf(boolean[] array, int startIndex, Matcher<Boolean> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(byte[] array, Filter<Byte> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(byte[] array, Matcher<Byte> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(byte[] array, int startIndex, Filter<Byte> filter) {
+    public static int indexOf(byte[] array, int startIndex, Matcher<Byte> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(char[] array, Filter<Character> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(char[] array, Matcher<Character> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(char[] array, int startIndex, Filter<Character> filter) {
+    public static int indexOf(char[] array, int startIndex, Matcher<Character> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(int[] array, Filter<Integer> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(int[] array, Matcher<Integer> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(int[] array, int startIndex, Filter<Integer> filter) {
+    public static int indexOf(int[] array, int startIndex, Matcher<Integer> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(long[] array, Filter<Long> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(long[] array, Matcher<Long> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(long[] array, int startIndex, Filter<Long> filter) {
+    public static int indexOf(long[] array, int startIndex, Matcher<Long> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(float[] array, Filter<Float> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(float[] array, Matcher<Float> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(float[] array, int startIndex, Filter<Float> filter) {
+    public static int indexOf(float[] array, int startIndex, Matcher<Float> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static int indexOf(double[] array, Filter<Double> filter) {
-        return indexOf(array, 0, filter);
+    public static int indexOf(double[] array, Matcher<Double> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static int indexOf(double[] array, int startIndex, Filter<Double> filter) {
+    public static int indexOf(double[] array, int startIndex, Matcher<Double> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static <T> int indexOf(T[] array, Filter<T> filter) {
-        return indexOf(array, 0, filter);
+    public static <T> int indexOf(T[] array, Matcher<T> matcher) {
+        return indexOf(array, 0, matcher);
     }
 
-    public static <T> int indexOf(T[] array, int startIndex, Filter<T> filter) {
+    public static <T> int indexOf(T[] array, int startIndex, Matcher<T> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return -1;
         }
 
         for (int i = 0, size = array.length; i < size; i++) {
-            if (filter.keep(array[i])) {
+            if (matcher.isMatch(array[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static <T> int indexOf(Iterable<T> iterable, Filter<T> filter) {
-        return indexOf(iterable, 0, filter);
+    public static <T> int indexOf(Iterable<T> iterable, Matcher<T> matcher) {
+        return indexOf(iterable, 0, matcher);
     }
 
-    public static <T> int indexOf(Iterable<T> iterable, int startIndex, Filter<T> filter) {
+    public static <T> int indexOf(Iterable<T> iterable, int startIndex, Matcher<T> matcher) {
         if (isOutOfIndex(iterable, startIndex)) {
             return -1;
         }
         if (iterable instanceof List && iterable instanceof RandomAccess) {
             List<T> list = (List<T>) iterable;
             for (int i = startIndex, size = list.size(); i < size; i++) {
-                if (filter.keep(list.get(i))) {
+                if (matcher.isMatch(list.get(i))) {
                     return i;
                 }
             }
@@ -954,7 +956,7 @@ public class CollectionUtil {
                 if (index < startIndex) {
                     continue;
                 }
-                if (filter.keep(t)) {
+                if (matcher.isMatch(t)) {
                     return index;
                 }
             }
@@ -963,28 +965,28 @@ public class CollectionUtil {
         return -1;
     }
 
-    public static <T> T find(T[] array, Filter<T> filter) {
-        return find(array, 0, filter);
+    public static <T> T find(T[] array, Matcher<T> matcher) {
+        return find(array, 0, matcher);
     }
 
-    public static <T> T find(T[] array, int startIndex, Filter<T> filter) {
+    public static <T> T find(T[] array, int startIndex, Matcher<T> matcher) {
         if (isOutOfIndex(array, startIndex)) {
             return null;
         }
         for (int i = startIndex, size = array.length; i < size; i++) {
             T t = array[i];
-            if (filter.keep(t)) {
+            if (matcher.isMatch(t)) {
                 return t;
             }
         }
         return null;
     }
 
-    public static <T> T find(Iterable<T> iterable, Filter<T> filter) {
-        return find(iterable, 0, filter);
+    public static <T> T find(Iterable<T> iterable, Matcher<T> matcher) {
+        return find(iterable, 0, matcher);
     }
 
-    public static <T> T find(Iterable<T> iterable, int startIndex, Filter<T> filter) {
+    public static <T> T find(Iterable<T> iterable, int startIndex, Matcher<T> matcher) {
         if (isOutOfIndex(iterable, startIndex)) {
             return null;
         }
@@ -993,7 +995,7 @@ public class CollectionUtil {
             List<T> list = (List<T>) iterable;
             for (int i = startIndex, size = list.size(); i < size; i++) {
                 T t = list.get(i);
-                if (filter.keep(t)) {
+                if (matcher.isMatch(t)) {
                     return t;
                 }
             }
@@ -1004,7 +1006,7 @@ public class CollectionUtil {
                 if (index < startIndex) {
                     continue;
                 }
-                if (filter.keep(t)) {
+                if (matcher.isMatch(t)) {
                     return t;
                 }
             }
@@ -1597,26 +1599,26 @@ public class CollectionUtil {
         return list;
     }
 
-    public static <T> void traverse(Iterable<T> iterable, IndexProcessor<T> indexProcessor) {
+    public static <T> void forEach(Iterable<T> iterable, IndexProcessor<T> indexProcessor) {
         if (isEmpty(iterable)) {
             return;
         }
 
-        int index = -1;
+        int index = 0;
         for (T t : iterable) {
-            index++;
             indexProcessor.process(index, t);
+            index++;
         }
     }
 
-    public static <T> void traverse(T[] array, IndexProcessor<T> indexProcessor) {
+    public static <T> void forEach(T[] array, IndexProcessor<T> indexProcessor) {
         if (isEmpty(array)) {
             return;
         }
-        int index = -1;
+        int index = 0;
         for (T t : array) {
-            index++;
             indexProcessor.process(index, t);
+            index++;
         }
     }
 
@@ -1626,6 +1628,7 @@ public class CollectionUtil {
         }
 
         if (iterable instanceof List) {
+            //noinspection rawtypes
             reverseTraverse((List) iterable, indexProcessor);
         } else {
             reverseTraverse(toArray(iterable), indexProcessor);
@@ -1938,9 +1941,9 @@ public class CollectionUtil {
     }
 
     public static <T> T[] toArray(Iterable<T> iterable) {
-        T t = find(iterable, new Filter<T>() {
+        T t = find(iterable, new Matcher<T>() {
             @Override
-            public boolean keep(T t) {
+            public boolean isMatch(T t) {
                 return t != null;
             }
         });
@@ -2077,5 +2080,146 @@ public class CollectionUtil {
         }
 
         return removedCount;
+    }
+
+    public static <T> IntRange intMinMax(Iterable<T> iterable, IntMapper<T> minMapper, IntMapper<T> maxMapper) {
+        if (iterable == null) {
+            return null;
+        }
+        IntRange intRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            int min = minMapper.map(t);
+            int max = maxMapper.map(t);
+
+            if (index == 0) {
+                intRange = new IntRange(min, max);
+            } else {
+                if (min < intRange.getStart()) {
+                    intRange.setStart(min);
+                }
+                if (max > intRange.getEnd()) {
+                    intRange.setEnd(max);
+                }
+            }
+
+            index++;
+        }
+
+        return intRange;
+    }
+
+    public static <T> LongRange longMinMax(Iterable<T> iterable, LongMapper<T> minMapper, LongMapper<T> maxMapper) {
+        if (iterable == null) {
+            return null;
+        }
+        LongRange intRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            long min = minMapper.map(t);
+            long max = maxMapper.map(t);
+
+            if (index == 0) {
+                intRange = new LongRange(min, max);
+            } else {
+                if (min < intRange.getStart()) {
+                    intRange.setStart(min);
+                }
+                if (max > intRange.getEnd()) {
+                    intRange.setEnd(max);
+                }
+            }
+
+            index++;
+        }
+
+        return intRange;
+    }
+
+    public static <T> DoubleRange doubleMinMax(Iterable<T> iterable, DoubleMapper<T> minMapper, DoubleMapper<T> maxMapper) {
+        if (iterable == null) {
+            return null;
+        }
+        DoubleRange doubleRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            double min = minMapper.map(t);
+            double max = maxMapper.map(t);
+
+            if (index == 0) {
+                doubleRange = new DoubleRange(min, max);
+            } else {
+                if (min < doubleRange.getStart()) {
+                    doubleRange.setStart(min);
+                }
+                if (max > doubleRange.getEnd()) {
+                    doubleRange.setEnd(max);
+                }
+            }
+
+            index++;
+        }
+
+        return doubleRange;
+    }
+
+    public static <T> IntRange intMinMax(int[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        IntRange intRange = new IntRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            int value = values[i];
+            if (value < intRange.getStart()) {
+                intRange.setStart(value);
+            }
+            if (value > intRange.getEnd()) {
+                intRange.setEnd(value);
+            }
+        }
+
+        return intRange;
+    }
+
+    public static <T> LongRange longMinMax(long[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        LongRange longRange = new LongRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            long value = values[i];
+            if (value < longRange.getStart()) {
+                longRange.setStart(value);
+            }
+            if (value > longRange.getEnd()) {
+                longRange.setEnd(value);
+            }
+        }
+
+        return longRange;
+    }
+
+    public static <T> DoubleRange doubleMinMax(double[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        DoubleRange doubleRange = new DoubleRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            double value = values[i];
+            if (value < doubleRange.getStart()) {
+                doubleRange.setStart(value);
+            }
+            if (value > doubleRange.getEnd()) {
+                doubleRange.setEnd(value);
+            }
+        }
+
+        return doubleRange;
     }
 }
