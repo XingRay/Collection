@@ -1749,6 +1749,84 @@ public class CollectionUtil {
         return cloneList;
     }
 
+    public static IntRange getIntValuesRange(List<int[]> values) {
+        IntRange range = null;
+        if (isEmpty(values)) {
+            return null;
+        }
+
+        for (int[] valueArray : values) {
+            if (valueArray == null || valueArray.length == 0) {
+                continue;
+            }
+            for (int value : valueArray) {
+                if (range == null) {
+                    range = new IntRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
+    public static LongRange getLongValuesRange(List<long[]> values) {
+        LongRange range = null;
+        if (isEmpty(values)) {
+            return null;
+        }
+
+        for (long[] valueArray : values) {
+            if (valueArray == null || valueArray.length == 0) {
+                continue;
+            }
+            for (long value : valueArray) {
+                if (range == null) {
+                    range = new LongRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
+    public static DoubleRange getDoubleValuesRange(List<double[]> values) {
+        DoubleRange range = null;
+        if (isEmpty(values)) {
+            return null;
+        }
+
+        for (double[] valueArray : values) {
+            if (valueArray == null || valueArray.length == 0) {
+                continue;
+            }
+            for (double value : valueArray) {
+                if (range == null) {
+                    range = new DoubleRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
     public static int compare(boolean x, boolean y) {
         return Boolean.compare(x, y);
     }
