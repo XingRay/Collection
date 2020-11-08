@@ -115,7 +115,7 @@ public class CollectionUtil {
         return array != null && array.length > 0;
     }
 
-    public static <T> int getSize(Iterable<T> iterable) {
+    public static <T> int size(Iterable<T> iterable) {
         if (iterable == null) {
             return 0;
         }
@@ -129,120 +129,120 @@ public class CollectionUtil {
         return size;
     }
 
-    public static int getSize(Map<?, ?> map) {
+    public static int size(Map<?, ?> map) {
         return map == null ? 0 : map.size();
     }
 
-    public static <T> int getSize(T[] array) {
+    public static <T> int size(T[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(boolean[] array) {
+    public static int size(boolean[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(byte[] array) {
+    public static int size(byte[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(char[] array) {
+    public static int size(char[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(int[] array) {
+    public static int size(int[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(long[] array) {
+    public static int size(long[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(float[] array) {
+    public static int size(float[] array) {
         return array == null ? 0 : array.length;
     }
 
-    public static int getSize(double[] array) {
+    public static int size(double[] array) {
         return array == null ? 0 : array.length;
     }
 
     public static boolean isValidIndex(Iterable<?> iterable, int index) {
-        return index < getSize(iterable) && index >= 0;
+        return index < size(iterable) && index >= 0;
     }
 
     public static boolean isValidIndex(Collection<?> collection, int index) {
-        return index < getSize(collection) && index >= 0;
+        return index < size(collection) && index >= 0;
     }
 
     public static boolean isValidIndex(List<?> list, int index) {
-        return index < getSize(list) && index >= 0;
+        return index < size(list) && index >= 0;
     }
 
     public static boolean isValidIndex(boolean[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static <T> boolean isValidIndex(T[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(byte[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(char[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(int[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(float[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(double[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isValidIndex(long[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean isOutOfIndex(Iterable<?> iterable, int index) {
-        return index < 0 || index >= getSize(iterable);
+        return index < 0 || index >= size(iterable);
     }
 
     public static <T> boolean isOutOfIndex(T[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(boolean[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(byte[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(char[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(int[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(float[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(double[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static boolean isOutOfIndex(long[] array, int index) {
-        return index < 0 || index >= getSize(array);
+        return index < 0 || index >= size(array);
     }
 
     public static <T> boolean hasElementByKey(Map<T, ?> map, T key) {
@@ -274,39 +274,39 @@ public class CollectionUtil {
     }
 
     public static boolean hasElementAt(boolean[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(byte[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(char[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(int[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(long[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(float[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
     public static boolean hasElementAt(double[] array, int index) {
-        return index < getSize(array) && index >= 0;
+        return index < size(array) && index >= 0;
     }
 
-    public static <T> T safetyGet(Iterable<T> iterable, int index) {
+    public static <T> T get(Iterable<T> iterable, int index) {
         if (iterable == null) {
             return null;
         }
         if (iterable instanceof Collection) {
-            return safetyGet((Collection<T>) iterable, index);
+            return get((Collection<T>) iterable, index);
         }
         int i = 0;
         for (T t : iterable) {
@@ -318,17 +318,17 @@ public class CollectionUtil {
         return null;
     }
 
-    public static <T> T safetyGet(Collection<T> collection, int index) {
+    public static <T> T get(Collection<T> collection, int index) {
         if (isOutOfIndex(collection, index)) {
             return null;
         }
         if (collection instanceof List) {
-            return safetyGet((List<T>) collection, index);
+            return get((List<T>) collection, index);
         }
         return (T) collection.toArray()[index];
     }
 
-    public static <T> T safetyGet(List<T> list, int index) {
+    public static <T> T get(List<T> list, int index) {
         T t = null;
         if (isValidIndex(list, index)) {
             t = list.get(index);
@@ -337,7 +337,7 @@ public class CollectionUtil {
         return t;
     }
 
-    public static <T> T safetyGet(T[] array, int index) {
+    public static <T> T get(T[] array, int index) {
         T t = null;
         if (isValidIndex(array, index)) {
             t = array[index];
@@ -346,7 +346,7 @@ public class CollectionUtil {
         return t;
     }
 
-    public static <K, V> V safetyGet(Map<K, V> map, K key) {
+    public static <K, V> V get(Map<K, V> map, K key) {
         return map == null ? null : map.get(key);
     }
 
@@ -1705,7 +1705,7 @@ public class CollectionUtil {
 
 
         for (T[] array : arrays) {
-            int length = getSize(array);
+            int length = size(array);
             if (initialized) {
                 min = Math.min(length, min);
                 max = Math.max(length, max);
@@ -1843,7 +1843,7 @@ public class CollectionUtil {
     }
 
     public static <T> T[] concat(Class<T> cls, T[]... arrays) {
-        int size = getSize(arrays);
+        int size = size(arrays);
         if (size == 0) {
             return (T[]) java.lang.reflect.Array.newInstance(cls, 0);
         }
@@ -1852,7 +1852,7 @@ public class CollectionUtil {
         int length = 0;
 
         for (T[] other : arrays) {
-            length += getSize(other);
+            length += size(other);
         }
 
         T[] result = (T[]) java.lang.reflect.Array.newInstance(cls, length);
@@ -1876,7 +1876,7 @@ public class CollectionUtil {
         if (isEmpty(container)) {
             return false;
         }
-        for (int i = 0, elementSize = getSize(elements); i < elementSize; i++) {
+        for (int i = 0, elementSize = size(elements); i < elementSize; i++) {
             T element = elements[i];
             if (!contains(container, element)) {
                 return false;
@@ -1889,7 +1889,7 @@ public class CollectionUtil {
         if (isEmpty(container)) {
             return false;
         }
-        for (int i = 0, size = getSize(container); i < size; i++) {
+        for (int i = 0, size = size(container); i < size; i++) {
             T t = container[i];
             if (t == null) {
                 if (element == null) {
@@ -1911,7 +1911,7 @@ public class CollectionUtil {
             return false;
         }
 
-        for (int i = 0, size = getSize(container); i < size; i++) {
+        for (int i = 0, size = size(container); i < size; i++) {
             int t = container[i];
             if (t == element) {
                 return true;
@@ -1951,7 +1951,7 @@ public class CollectionUtil {
     }
 
     public static <T> T[] toArray(Iterable<T> iterable, Class<T> cls) {
-        int size = getSize(iterable);
+        int size = size(iterable);
         T[] array = (T[]) java.lang.reflect.Array.newInstance(cls, size);
         if (size == 0) {
             return array;
@@ -2027,7 +2027,7 @@ public class CollectionUtil {
             }
             Collections.reverse(target);
         } else {
-            int size = getSize(source);
+            int size = size(source);
             Array<T> array = new Array<>(size);
 
             int index = 0;
