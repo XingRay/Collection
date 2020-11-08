@@ -32,28 +32,23 @@ public class CollectionTest {
 
     static class People {
         public String name;
-        public String fullName;
+        public String nickName;
 
-        public People(String name, String fullName) {
+        public People(String name, String nickName) {
             this.name = name;
-            this.fullName = fullName;
+            this.nickName = nickName;
         }
     }
 
     @Test
     public void test04() {
-        List<People> peoples = List.of(new People("alex12", "ABC alex 222"),
-                new People("blue234", "ASD blue 4343"),
-                new People("coco1", "RFV coco 5455453")
+        List<People> peoples = List.of(new People("alex22", "alex222"),
+                new People("blue234", "234"),
+                new People("coco1", "cocococo111")
         );
 
         IntRange nameLengthRange = CollectionUtil.intMinMax(peoples,
                 new IntMapper<People>() {
-                    @Override
-                    public int map(People people) {
-                        return people.name.length();
-                    }
-                }, new IntMapper<People>() {
                     @Override
                     public int map(People people) {
                         return people.name.length();
@@ -67,17 +62,17 @@ public class CollectionTest {
                 new IntMapper<People>() {
                     @Override
                     public int map(People people) {
-                        return people.fullName.length();
+                        return Math.min(people.name.length(), people.nickName.length());
                     }
                 }, new IntMapper<People>() {
                     @Override
                     public int map(People people) {
-                        return people.fullName.length();
+                        return Math.max(people.name.length(), people.nickName.length());
                     }
                 });
 
         System.out.println(fullNameLengthRange);
-        assert fullNameLengthRange.getStart() == 12;
-        assert fullNameLengthRange.getEnd() == 16;
+        assert fullNameLengthRange.getStart() == 3;
+        assert fullNameLengthRange.getEnd() == 11;
     }
 }

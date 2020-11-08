@@ -2082,6 +2082,145 @@ public class CollectionUtil {
         return removedCount;
     }
 
+    public static <T> IntRange intMinMax(int[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        IntRange intRange = new IntRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            int value = values[i];
+            if (value < intRange.getStart()) {
+                intRange.setStart(value);
+            }
+            if (value > intRange.getEnd()) {
+                intRange.setEnd(value);
+            }
+        }
+
+        return intRange;
+    }
+
+    public static <T> LongRange longMinMax(long[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        LongRange longRange = new LongRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            long value = values[i];
+            if (value < longRange.getStart()) {
+                longRange.setStart(value);
+            }
+            if (value > longRange.getEnd()) {
+                longRange.setEnd(value);
+            }
+        }
+
+        return longRange;
+    }
+
+    public static <T> DoubleRange doubleMinMax(double[] values) {
+        if (values == null) {
+            return null;
+        }
+
+        DoubleRange doubleRange = new DoubleRange(values[0], values[0]);
+
+        for (int i = 1, length = values.length; i < length; i++) {
+            double value = values[i];
+            if (value < doubleRange.getStart()) {
+                doubleRange.setStart(value);
+            }
+            if (value > doubleRange.getEnd()) {
+                doubleRange.setEnd(value);
+            }
+        }
+
+        return doubleRange;
+    }
+
+    // ================================= //
+
+    public static <T> IntRange intMinMax(Iterable<T> iterable, IntMapper<T> mapper) {
+        if (iterable == null) {
+            return null;
+        }
+        IntRange intRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            int value = mapper.map(t);
+            if (index == 0) {
+                intRange = new IntRange(value, value);
+            } else {
+                if (value < intRange.getStart()) {
+                    intRange.setStart(value);
+                }
+                if (value > intRange.getEnd()) {
+                    intRange.setEnd(value);
+                }
+            }
+
+            index++;
+        }
+
+        return intRange;
+    }
+
+    public static <T> LongRange longMinMax(Iterable<T> iterable, LongMapper<T> mapper) {
+        if (iterable == null) {
+            return null;
+        }
+        LongRange intRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            long value = mapper.map(t);
+            if (index == 0) {
+                intRange = new LongRange(value, value);
+            } else {
+                if (value < intRange.getStart()) {
+                    intRange.setStart(value);
+                }
+                if (value > intRange.getEnd()) {
+                    intRange.setEnd(value);
+                }
+            }
+
+            index++;
+        }
+
+        return intRange;
+    }
+
+    public static <T> DoubleRange doubleMinMax(Iterable<T> iterable, DoubleMapper<T> mapper) {
+        if (iterable == null) {
+            return null;
+        }
+        DoubleRange doubleRange = null;
+        int index = 0;
+        for (T t : iterable) {
+            double value = mapper.map(t);
+            if (index == 0) {
+                doubleRange = new DoubleRange(value, value);
+            } else {
+                if (value < doubleRange.getStart()) {
+                    doubleRange.setStart(value);
+                }
+                if (value > doubleRange.getEnd()) {
+                    doubleRange.setEnd(value);
+                }
+            }
+
+            index++;
+        }
+
+        return doubleRange;
+    }
+
+    // ============================ //
+
     public static <T> IntRange intMinMax(Iterable<T> iterable, IntMapper<T> minMapper, IntMapper<T> maxMapper) {
         if (iterable == null) {
             return null;
@@ -2158,66 +2297,6 @@ public class CollectionUtil {
             }
 
             index++;
-        }
-
-        return doubleRange;
-    }
-
-    public static <T> IntRange intMinMax(int[] values) {
-        if (values == null) {
-            return null;
-        }
-
-        IntRange intRange = new IntRange(values[0], values[0]);
-
-        for (int i = 1, length = values.length; i < length; i++) {
-            int value = values[i];
-            if (value < intRange.getStart()) {
-                intRange.setStart(value);
-            }
-            if (value > intRange.getEnd()) {
-                intRange.setEnd(value);
-            }
-        }
-
-        return intRange;
-    }
-
-    public static <T> LongRange longMinMax(long[] values) {
-        if (values == null) {
-            return null;
-        }
-
-        LongRange longRange = new LongRange(values[0], values[0]);
-
-        for (int i = 1, length = values.length; i < length; i++) {
-            long value = values[i];
-            if (value < longRange.getStart()) {
-                longRange.setStart(value);
-            }
-            if (value > longRange.getEnd()) {
-                longRange.setEnd(value);
-            }
-        }
-
-        return longRange;
-    }
-
-    public static <T> DoubleRange doubleMinMax(double[] values) {
-        if (values == null) {
-            return null;
-        }
-
-        DoubleRange doubleRange = new DoubleRange(values[0], values[0]);
-
-        for (int i = 1, length = values.length; i < length; i++) {
-            double value = values[i];
-            if (value < doubleRange.getStart()) {
-                doubleRange.setStart(value);
-            }
-            if (value > doubleRange.getEnd()) {
-                doubleRange.setEnd(value);
-            }
         }
 
         return doubleRange;
