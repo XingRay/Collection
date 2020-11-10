@@ -5,6 +5,7 @@ import com.xingray.collection.array.Array;
 import com.xingray.collection.series.DoubleSeries;
 import com.xingray.collection.series.IntSeries;
 import com.xingray.collection.series.LongSeries;
+import com.xingray.collection.series.Series;
 import com.xingray.javabase.interfaces.*;
 import com.xingray.javabase.range.DoubleRange;
 import com.xingray.javabase.range.IntRange;
@@ -33,6 +34,7 @@ public class CollectionUtil {
     }
 
     public static boolean isEmpty(Iterable<?> iterable) {
+        //noinspection rawtypes
         return iterable == null || (iterable instanceof Collection && isEmpty((Collection) iterable))
                 || !iterable.iterator().hasNext();
     }
@@ -75,6 +77,22 @@ public class CollectionUtil {
 
     public static boolean isEmpty(double[] array) {
         return array == null || array.length == 0;
+    }
+
+    public static boolean isEmpty(Series<?> series) {
+        return series == null || series.length() == 0;
+    }
+
+    public static boolean isEmpty(IntSeries series) {
+        return series == null || series.length() == 0;
+    }
+
+    public static boolean isEmpty(LongSeries series) {
+        return series == null || series.length() == 0;
+    }
+
+    public static boolean isEmpty(DoubleSeries series) {
+        return series == null || series.length() == 0;
     }
 
     public static boolean hasElement(Iterable<?> iterable) {
@@ -169,6 +187,22 @@ public class CollectionUtil {
 
     public static int size(double[] array) {
         return array == null ? 0 : array.length;
+    }
+
+    public static int size(Series<?> series) {
+        return series == null ? 0 : series.length();
+    }
+
+    public static int size(IntSeries series) {
+        return series == null ? 0 : series.length();
+    }
+
+    public static int size(LongSeries series) {
+        return series == null ? 0 : series.length();
+    }
+
+    public static int size(DoubleSeries series) {
+        return series == null ? 0 : series.length();
     }
 
     public static boolean isValidIndex(Iterable<?> iterable, int index) {
