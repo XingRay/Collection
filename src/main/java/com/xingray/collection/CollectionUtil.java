@@ -1,6 +1,10 @@
 package com.xingray.collection;
 
 
+import com.xingray.collection.array.Array;
+import com.xingray.collection.series.DoubleSeries;
+import com.xingray.collection.series.IntSeries;
+import com.xingray.collection.series.LongSeries;
 import com.xingray.javabase.interfaces.*;
 import com.xingray.javabase.range.DoubleRange;
 import com.xingray.javabase.range.IntRange;
@@ -1749,7 +1753,9 @@ public class CollectionUtil {
         return cloneList;
     }
 
-    public static IntRange getIntValuesRange(List<int[]> values) {
+    // ================================================//
+
+    public static IntRange getIntValuesRange(Iterable<int[]> values) {
         IntRange range = null;
         if (isEmpty(values)) {
             return null;
@@ -1775,7 +1781,7 @@ public class CollectionUtil {
         return range;
     }
 
-    public static LongRange getLongValuesRange(List<long[]> values) {
+    public static LongRange getLongValuesRange(Iterable<long[]> values) {
         LongRange range = null;
         if (isEmpty(values)) {
             return null;
@@ -1801,7 +1807,7 @@ public class CollectionUtil {
         return range;
     }
 
-    public static DoubleRange getDoubleValuesRange(List<double[]> values) {
+    public static DoubleRange getDoubleValuesRange(Iterable<double[]> values) {
         DoubleRange range = null;
         if (isEmpty(values)) {
             return null;
@@ -1826,6 +1832,187 @@ public class CollectionUtil {
         }
         return range;
     }
+
+    // ================================================= //
+
+
+    // ============================== //
+
+    public static IntRange getRangeOfIntSeries(IntSeries series) {
+        IntRange range = null;
+
+        if (series == null) {
+            return null;
+        }
+        int length = series.length();
+        if (length == 0) {
+            return null;
+        }
+        for (int i = 0; i < length; i++) {
+            int value = series.get(i);
+            if (range == null) {
+                range = new IntRange(value, value);
+            } else {
+                if (value < range.getStart()) {
+                    range.setStart(value);
+                }
+                if (value > range.getEnd()) {
+                    range.setEnd(value);
+                }
+            }
+        }
+        return range;
+    }
+
+    public static LongRange getRangeOfLongSeries(LongSeries series) {
+        LongRange range = null;
+
+        if (series == null) {
+            return null;
+        }
+        int length = series.length();
+        if (length == 0) {
+            return null;
+        }
+        for (int i = 0; i < length; i++) {
+            long value = series.get(i);
+            if (range == null) {
+                range = new LongRange(value, value);
+            } else {
+                if (value < range.getStart()) {
+                    range.setStart(value);
+                }
+                if (value > range.getEnd()) {
+                    range.setEnd(value);
+                }
+            }
+        }
+        return range;
+    }
+
+    public static DoubleRange getRangeOfDoubleSeries(DoubleSeries series) {
+        DoubleRange range = null;
+
+        if (series == null) {
+            return null;
+        }
+        int length = series.length();
+        if (length == 0) {
+            return null;
+        }
+        for (int i = 0; i < length; i++) {
+            double value = series.get(i);
+            if (range == null) {
+                range = new DoubleRange(value, value);
+            } else {
+                if (value < range.getStart()) {
+                    range.setStart(value);
+                }
+                if (value > range.getEnd()) {
+                    range.setEnd(value);
+                }
+            }
+        }
+        return range;
+    }
+
+    // =============================== //
+    // =========================================//
+
+    public static IntRange getRangeOfIntSeriesList(Iterable<? extends IntSeries> seriesList) {
+        IntRange range = null;
+        if (isEmpty(seriesList)) {
+            return null;
+        }
+
+        for (IntSeries series : seriesList) {
+            if (series == null) {
+                continue;
+            }
+            int length = series.length();
+            if (length == 0) {
+                continue;
+            }
+            for (int i = 0; i < length; i++) {
+                int value = series.get(i);
+                if (range == null) {
+                    range = new IntRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
+    public static LongRange getRangeOfLongSeriesList(Iterable<? extends LongSeries> seriesList) {
+        LongRange range = null;
+        if (isEmpty(seriesList)) {
+            return null;
+        }
+
+        for (LongSeries series : seriesList) {
+            if (series == null) {
+                continue;
+            }
+            int length = series.length();
+            if (length == 0) {
+                continue;
+            }
+            for (int i = 0; i < length; i++) {
+                long value = series.get(i);
+                if (range == null) {
+                    range = new LongRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
+    public static DoubleRange getRangeOfDoubleSeriesList(Iterable<? extends DoubleSeries> seriesList) {
+        DoubleRange range = null;
+        if (isEmpty(seriesList)) {
+            return null;
+        }
+
+        for (DoubleSeries series : seriesList) {
+            if (series == null) {
+                continue;
+            }
+            int length = series.length();
+            if (length == 0) {
+                continue;
+            }
+            for (int i = 0; i < length; i++) {
+                double value = series.get(i);
+                if (range == null) {
+                    range = new DoubleRange(value, value);
+                } else {
+                    if (value < range.getStart()) {
+                        range.setStart(value);
+                    }
+                    if (value > range.getEnd()) {
+                        range.setEnd(value);
+                    }
+                }
+            }
+        }
+        return range;
+    }
+
+    // =====================================================//
 
     public static int compare(boolean x, boolean y) {
         return Boolean.compare(x, y);

@@ -1,6 +1,8 @@
 package com.xingray.collection;
 
+import com.xingray.collection.array.DoubleArray;
 import com.xingray.javabase.interfaces.IntMapper;
+import com.xingray.javabase.range.DoubleRange;
 import com.xingray.javabase.range.IntRange;
 import org.junit.Test;
 
@@ -74,5 +76,15 @@ public class CollectionTest {
         System.out.println(fullNameLengthRange);
         assert fullNameLengthRange.getStart() == 3;
         assert fullNameLengthRange.getEnd() == 11;
+    }
+
+    @Test
+    public void test05() {
+        List<DoubleArray> arrays = List.of(DoubleArray.of(21, 15, 53), DoubleArray.of(11, 64, 72), DoubleArray.of(63, 12, 45));
+        DoubleRange range = CollectionUtil.getRangeOfDoubleSeriesList(arrays);
+        System.out.println(range);
+        assert range != null;
+        assert range.getStart() == 11;
+        assert range.getEnd() == 72;
     }
 }

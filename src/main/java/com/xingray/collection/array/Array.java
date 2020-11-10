@@ -1,8 +1,11 @@
-package com.xingray.collection;
+package com.xingray.collection.array;
+
+import com.xingray.collection.series.Series;
 
 import java.util.*;
+import java.util.function.Consumer;
 
-public class Array<T> {
+public class Array<T> implements Iterable<T>, Series<T> {
 
     private final Object[] array;
 
@@ -14,17 +17,19 @@ public class Array<T> {
         array = new Object[length];
     }
 
+    @Override
     public T get(int index) {
         //noinspection unchecked
         return (T) array[index];
     }
 
-    public void set(int index, T t) {
-        array[index] = t;
-    }
-
+    @Override
     public int length() {
         return array.length;
+    }
+
+    public void set(int index, T t) {
+        array[index] = t;
     }
 
     public List<T> toList() {
@@ -55,4 +60,38 @@ public class Array<T> {
         return new Array<>(c.toArray());
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayIterator<>(this);
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        for (Object t : array) {
+            //noinspection unchecked
+            action.accept((T) t);
+        }
+    }
+
+    private static class ArrayIterator<T> implements Iterator<T> {
+
+        private final Array<T> array;
+        private int index;
+
+        public ArrayIterator(Array<T> array) {
+            this.array = array;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return array.length() > 0 && index < array.length();
+        }
+
+        @Override
+        public T next() {
+            T t = array.get(index);
+            index++;
+            return t;
+        }
+    }
 }
