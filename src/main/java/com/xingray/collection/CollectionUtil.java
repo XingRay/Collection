@@ -1852,6 +1852,9 @@ public class CollectionUtil {
                 continue;
             }
             for (double value : valueArray) {
+                if (Double.isNaN(value)) {
+                    continue;
+                }
                 if (range == null) {
                     range = new DoubleRange(value, value);
                 } else {
@@ -1936,6 +1939,9 @@ public class CollectionUtil {
         }
         for (int i = 0; i < length; i++) {
             double value = series.get(i);
+            if (Double.isNaN(value)) {
+                continue;
+            }
             if (range == null) {
                 range = new DoubleRange(value, value);
             } else {
